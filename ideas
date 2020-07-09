@@ -1,0 +1,18 @@
+only posts table for keeping posts
+op_id is 0 if it is op, otherwise it is a reply and refers to corresponding post
+
+posts (
+    id,
+    board,
+    op_id,
+    time,
+    name,
+    title
+)
+
+select for threads list:
+    SELECT * FROM posts WHERE posts.board="${board}" AND op_id=0;
+select for thread:
+    SELECT * FROM posts WHERE posts.op_id=${id};
+
+so there is only one table with all posts
